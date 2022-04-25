@@ -1,1 +1,1 @@
-This repository is about the SHELL and SHELL commands.
+This repository is about SHELL basics.
