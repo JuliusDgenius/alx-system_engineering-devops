@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Displays a link of currently running processes for all users
-$ in a user-oriented format according to their process hierarchy
+# in a user-oriented format according to their process hierarchy
 ps -faux

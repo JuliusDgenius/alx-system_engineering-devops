@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # Manages a daemon
 if [[ "$#" == "1" ]]; then
-  if [[ "$1" == "1" ]]; then
-     ./manage_my_process &
-     echo "$!" > /var/run/my_process.pid
-     echo "manage_my_process started"
-  elif [[ "$!" == "stop" ]]; then
+  if [[ "$1" == "start" ]]; then
+    ./manage_my_process &
+    echo "$!" > /var/run/my_process.pid
+    echo "manage_my_process started"
+  elif [[ "$1" == "stop" ]]; then
     if test -f "/var/run/my_process.pid"; then
       kill "$(cat /var/run/my_process.pid)"
     fi
@@ -23,6 +23,6 @@ if [[ "$#" == "1" ]]; then
   else
     echo "Usage: manage_my_process {start|stop|restart}"
   fi
-else
+ else
   echo "Usage: manage_my_process {start|stop|restart}"
-fi
+ fi
