@@ -17,3 +17,11 @@ SERVER_CONFIG=\
 		try_files \$uri \$uri/ =404;
 	}
 }"
+
+bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+
+if [ "$(pgrep -c nginx)" -le 0 ]; then
+	service nginx start
+else
+	service nginx restart
+fi
