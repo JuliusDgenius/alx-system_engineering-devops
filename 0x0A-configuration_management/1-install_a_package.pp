@@ -1,6 +1,6 @@
 # using puupet to install flask from pip3
 package { 'flask':
   ensure   => '2.1.0',
-  name	   => 'flask',
+  name     => 'flask',
   provider => 'pip3'
 }
