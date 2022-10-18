@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Exports to-do list information for a givrn employee ID to CSV format."""
+import csv
 import requests
 import sys
-import csv
 
 if __name__ == "__main__":
     user_id = sys.argv[1]
