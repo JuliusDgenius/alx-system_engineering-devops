@@ -22,7 +22,7 @@ def count_words(subreddit, word_list, instances={}, after="", count=0):
             "limit": 100
     }
     response = requests.get(url, headers=headers, params=params,
-            allow_redirects=False)
+                            allow_redirects=False)
     try:
         results = response.json()
         if response.status_code == 404:
