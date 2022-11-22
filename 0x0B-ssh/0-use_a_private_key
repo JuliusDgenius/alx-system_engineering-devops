@@ -3,4 +3,4 @@
 # with server ubuntu using private key
 
 ssh -i ~/.ssh/school
-ssh ububtu@54.236.30.250
+ssh ububtu@54.160.122.124
