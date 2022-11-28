@@ -2,10 +2,8 @@
 # Installs, configures, and starts the server
 apt-get update
 apt-get -y install nginx
-ufw allow 'Nginx HTTP'
-mkdir -p /var/www/html /var/www/error
-chmod -R 755 /var/www
-echo 'Hello World!' > /var/www/html/index.html
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+sudo mkdir /var/www/error
 echo "Ceci n'est pas une page" > /var/www/error/404.html
 # the server's configuration
 echo "server {
@@ -13,7 +11,9 @@ echo "server {
    listen [::]:80 default_server;
    root /var/www/html;
    index index.html index.htm index.nginx-debian.html;
+
    server_name _;
+
    location /redirect_me {
        return 301 http://juliusdgenius-alx.tech/;
    }
@@ -23,5 +23,5 @@ echo "server {
    root /var/www/error;
    internal;
    }
-}" > /etc/nginx/sites-enabled/default
+}" > /etc/nginx/sites-available/default
 service nginx restart
