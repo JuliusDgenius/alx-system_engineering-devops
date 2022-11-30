@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-# Install load balancer
+# Installs, configures and starts load balancer
 sudo apt-get -y update
 sudo apt-get -y install --no-install-recommends software-properties-common
 sudo add-apt-repository -y ppa:vbernat/haproxy-2.4
 sudo apt-get -y install haproxy
-
 
 # the load balancer's configuration
 DOMAIN_NAME='juliusdgenius-alx.tech'
@@ -15,8 +14,8 @@ HAPROXY_LB_CONFIG=\
 #--$DOMAIN_NAME-params-begin--
 backend $DOMAIN_NAME-backend
 	balance roundrobin
-	server 26406-web-01
-	server 26406-web-02
+	server 26406-web-01 54.160.68.184 check
+	server 26406-web-02 18.204.13.30 check
 frontend $DOMAIN_NAME-frontend
 	bind *:80
 	mode http
