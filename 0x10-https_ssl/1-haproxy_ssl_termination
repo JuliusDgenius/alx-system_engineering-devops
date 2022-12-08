@@ -34,14 +34,15 @@ defaults
 	errorfile 502 /etc/haproxy/errors/502.http
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
-frontend www
-	bind *:80
-	bind *:443 ssl crt /etc/letsencrypt/live/juliusdgenius-alx.tech/all.pem
-	use_backend www
 
-backend www
+#--params-begin--
+backend juliusdgenius-alx.tech-backend
 	balance roundrobin
-     option httpclose
-	option forwardfor
-	server 26406-web-01 34.229.64.63 check
-	server 26406-web-02 35.175.113.91 check
+	server 26406-web-01 54.160.68.184 check
+	server 26406-web-02 18.204.13.30 check
+frontend juliusdgenius-alx.tech-frontend
+	bind *:80
+	bind *:443 ssl crt /etc/letsencrypt/live/www.juliusdgenius-alx.tech-002/fullchain.pem
+	mode http
+	default_backend juliusdgenius-alx.tech-backend
+#--params-begin--

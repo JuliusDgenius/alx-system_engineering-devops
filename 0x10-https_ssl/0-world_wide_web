@@ -1,18 +1,26 @@
 #!/usr/bin/env bash
-# subdomain www points to the load-balancer IP (lb-01).
-# script that will display information about subdomains.
+# Configure my domain zone:
+# www --> 914-lb-01 34.237.76.64
+# web-01 --> 914-web-01 34.138.32.248
+# web-02 --> 914-web-02 3.226.74.205
 
-display_info ()
-{
-     domain="$1"
-     subdomain="$2"
-     dig "$subdomain.$domain" | awk '/ANSWER SECTION:/{getline; printf "The subdomain %s is a %s record and points to %s\n", var, $4, $5}' var="$subdomain"
+sub_domains=( "www" "lb-01" "web-01" "web-02" )
+
+details () {
+	domain=$1
+	subdomain=$2
+
+	dig "$subdomain.$domain" | grep -A1 'ANSWER SECTION:' | tail -1 | awk -v s="$subdomain" 'BEGIN { FS = " " }; { print "The subdomain " s " is a " $4 " record and points to " $5 }'
 }
 
-for subdomain in "www" "lb-01" "web-01" "web-02"
-do
-    if [ -z "$2" ] || [ "$2" == "$subdomain" ] ;
-    then
-	 display_info "$1" "$subdomain"
-    fi
-done
+if [ $# -eq 1 ]; then
+	domain="$1"
+	for i in "${sub_domains[@]}"
+	do
+		details "$domain" "$i"
+	done
+elif [ $# -eq 2 ]; then
+	domain="$1"
+	subdomain="$2"
+	details "$domain" "$subdomain"
+fi

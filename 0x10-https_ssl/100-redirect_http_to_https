@@ -33,14 +33,14 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-#--graceeffiong.tech-params-begin--
-backend graceeffiong.tech-backend
+#--params-begin--
+backend juliusdgenius-alx.tech-backend
         balance roundrobin
-        server 26406-web-01 54.160.122.124:80 check
-        server 26406-web-02 34.224.3.12:80 check
-frontend graceeffiong.tech-frontend
+        server 26406-web-01 54.160.68.184:80 check
+        server 26406-web-02 18.204.13.30:80 check
+frontend juliusdgenius-alx.tech-frontend
         bind *:80
-        bind *:443 ssl crt /etc/letsencrypt/live/www.graceeffiong.tech-0002/fullchain.pem
+        bind *:443 ssl crt /etc/letsencrypt/live/www.juliusdgenius-alx.tech-0002/fullchain.pem
         redirect scheme https if !{ ssl_fc }
         mode http
         default_backend juliusdgenius-alx.tech-backend
