@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# Displays lostening ports. Including lo=istening sockets and the PID
-# and name of the program to which each socket belong.
-
-sudo netstat -lp
