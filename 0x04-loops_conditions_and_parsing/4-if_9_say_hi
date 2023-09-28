@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Prints 'Best School' n times using `while loop` and then 'Hi' `if` `n is 9`
+
+n=0
+while [ $n -lt 10 ]; do
+    if [ $n -eq 9 ]; then
+        echo "Hi"
+    fi
+    echo "Best School"
+    ((n++))
+done
