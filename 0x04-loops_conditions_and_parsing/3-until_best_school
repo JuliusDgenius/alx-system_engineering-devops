@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Prints 'Best School' n times using `until`
+
+n=10
+until [ $n == 0 ];
+do
+echo "Best School"
+((n--))
+done
