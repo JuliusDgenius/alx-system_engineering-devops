@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# A bash script that gives information about a file: school
+
+current_dir=( * )
+found=false
+
+for dir in "${current_dir[@]}"; do
+    if [ "$dir" == "school" ]; then
+        found=true
+        break
+    else
+        found=false
+    fi
+done
+
+if [ "$found" == true ]; then
+    if [ -s "school" ] && [ -f "school" ]; then
+        echo "school exists"
+        echo "school is not empty"
+        echo "school is a regular file"
+    else
+        echo "school exists"
+        echo "school is empty"
+        echo "school is a regular file"
+    fi
+else
+    echo "school does not exist"
+fi
