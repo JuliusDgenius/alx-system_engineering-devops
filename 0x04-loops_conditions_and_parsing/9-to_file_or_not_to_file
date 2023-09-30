@@ -3,9 +3,10 @@
 
 current_dir=( * )
 found=false
+file="school"
 
 for dir in "${current_dir[@]}"; do
-    if [ "$dir" == "school" ]; then
+    if [ "$dir" == "$file" ]; then
         found=true
         break
     else
@@ -14,18 +15,17 @@ for dir in "${current_dir[@]}"; do
 done
 
 if [ "$found" == true ]; then
-    if [ -d "school" ] && [ ! -f "school" ]; then
-        echo "school file exists"
-        echo "school file is not empty"
-    elif [ -s "school" ] && [ -f "school" ]; then
-        echo "school file exist"
-        echo "school file is not empty"
-        echo "school is a regular file"
-    else
-        echo "school file exists"
-        echo "school file is empty"
-        echo "school file is a regular file"
-       
+    if [ -e $file ]; then
+        echo "$file file exists"
+        if [ -s $file ]; then
+            echo "$file file is not empty"
+        else
+            echo "$file is empty"
+        fi
+
+        if [ -f $file ]; then
+            echo "$file is a regular file"
+        fi
     fi
 else
     echo "school file does not exist"
