@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Displays the content of /etc/passwd
+
+file="/etc/passwd"
+
+# check if file exist
+if [ -e "$file" ]; then
+    # Open the file
+    exec 3<"$file"
+
+    #Read and process each line in the file
+    while read -r -u 3 line; do
+    echo "$line" | cut -d':' -f1-3
+    done
+    #Close file
+    exec 3<&-
+fi
