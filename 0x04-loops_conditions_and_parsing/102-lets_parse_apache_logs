@@ -3,7 +3,7 @@
 
 access_log="apache-access.log"
 if [ -e "$access_log" ]; then
-    gawk '{ print $1, $9 }' "$access_log"
+    awk '{ print $1, $9 }' "$access_log"
 else
     echo "$access_log does not exist"
 fi
