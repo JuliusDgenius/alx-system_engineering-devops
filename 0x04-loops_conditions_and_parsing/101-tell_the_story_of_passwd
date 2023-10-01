@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# Write a Bash script that displays the content of the file /etc/passwd, using the while loop + IFS.
+
+file="/etc/passwd"
+
+# Check if the file exists
+if [ -e "$file" ]; then
+    # Set IFS to ':'
+    IFS=":"
+
+    #open /etc/passwd file
+    exec 3<"$file"
+
+
+    # Read and process each line in /etc/passwd
+        while read -r -u 3 username password uid gid gecos home shell; do
+ 
+            USERNAME="$username"
+            PASSWORD="$password"
+            USER_ID="$uid"
+            GROUP_ID="$gid"
+            USER_ID_INFO="$gecos"
+            HOME_DIRECTORY="$home"
+            COMMAND_SHELL="$shell"
+
+            sentence="The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIRECTORY and rides $COMMAND_SHELL. $USER_ID's place is protected by the passcode $PASSWORD, more info about the user here: $USER_ID_INFO"
+            echo "$sentence"
+        
+        done
+        exec 3<&-
+else
+    echo "$file not found"
+fi
