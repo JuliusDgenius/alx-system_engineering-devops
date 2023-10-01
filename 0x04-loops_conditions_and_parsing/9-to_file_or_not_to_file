@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 # A bash script that gives information about a file: school
 
-current_dir=( * )
-found=false
 file="school"
 
 if [ -e $file ]; then
