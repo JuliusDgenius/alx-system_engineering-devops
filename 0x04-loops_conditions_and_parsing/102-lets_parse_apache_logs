@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Displays the visitor IP along with HTTP status code from the Apache log file
+
+access_log="apache-access.log"
+if [ -e "$access_log" ]; then
+    gawk '{ print $1, $9 }' "$access_log"
+else
+    echo "$access_log does not exist"
+fi
