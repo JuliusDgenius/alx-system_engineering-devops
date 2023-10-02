@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Display the count/occurrence of an IP in a file using awk command.
+
+awk '{ print $1 " " $9}' apache-access.log | sort | uniq -c | sort -rn
