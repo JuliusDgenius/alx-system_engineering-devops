@@ -9,3 +9,4 @@
 * are associated with the hardware of network
 * adapters in the same way IP address are linked
 * to the networking software called TCP/IP.
+* 0-OSI_model
