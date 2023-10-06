@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Displays all active IPs on the machine it's executed on.
+
+ifconfig | grep "inet " | awk '{print $2}'
