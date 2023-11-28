@@ -13,7 +13,7 @@ echo "server {
     server_name _;
 
     location /redirect_me {
-        return 301 http://juliusdgenius-alx.tech/;
+        return 301 http://juliusdgenius.tech/;
     }
 
     error_page 404 /404.html;
