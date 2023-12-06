@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# Write 0-custom_http_response_header so that it configures a brand new# Ubuntu machine to the requirements asked in this task
+sudo apt -y update
+sudo apt -y install nginx
+
+# Allow request through port 80 through
+sudo ufw Allow 'Nginx HTTP'
+
+# Create the root directory
+sudo mkdir -p /var/www/html
+
+# Grant create files permissions in this directory
+sudo chmod -R 755 /var/www
+
+# Create the index page
+echo "Hello World!" | sudo tee /var/www/html/index.html
+
+# Create the error 404 page
+echo "Ceci n'est pas une page" |sudo tee /var/www/html/404.html
+
+# Configure the redirect (/redirect_me) for a single page, add header to display hostname
+replace_str="server_name _;\n\tadd_header X-Served-By \$hostname;\trewrite ^\/redirect_me https:\/\/juliusdgenius.tech permanent;"
+sudo sed -i "s/server_name _;/$replace_str/" /etc/nginx/sites-enabled/default
+
+# configure redirect for 404 error page
+replace_str="listen 80 default_server;\n\terror_page 404 \/404.html {\n\t\troot \/var/www\/html;\n\t\tinternal;\n\t}"
+sudo sed -i "s/listen 80 default_server;$replace_str/" /etc/nginx/sites-enabled/default
+
+# restart web server after settings update
+sudo service nginx restart
