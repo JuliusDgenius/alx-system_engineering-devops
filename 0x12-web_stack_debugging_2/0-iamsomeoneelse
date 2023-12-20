@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Runs the `whoami` command under a user passed to it.
+
+sudo -u "$1" whoami
