@@ -79,8 +79,8 @@ Debugging is fun
 Debugging can be frustrating, but it will definitely be part of your job, it requires experience and methodology to become good at it. The good news is that bugs are never going away, and the more experienced you become, trickier bugs will be assigned to you! Good luck :)
 
 File: 0-iamsomeoneelse
-    - A bash script that accepts one argument
-    - runs the 'whoami' command under the user passed
+    * A bash script that accepts one argument
+    * runs the 'whoami' command under the user passed
 Example:
     - root@ubuntu:~# whoami
         root
@@ -95,7 +95,7 @@ Requirements:
     - you cannot use apt-get remove
 file is a bash script that configures the container to fit above requirements.
 Example:
-    - After debugging:
+    * After debugging:
         - root@abc:~# ps auxff | grep ngin[x]
             - nginx      884  0.0  0.0  77360  2744 ?        Ss   19:16   0:00 nginx: master process /usr/sbin/nginx
             nginx      885  0.0  0.0  77712  2772 ?        S    19:16   0:00  \_ nginx: worker process
