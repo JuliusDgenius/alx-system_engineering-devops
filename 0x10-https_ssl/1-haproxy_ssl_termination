@@ -46,5 +46,5 @@ backend juliusdgenius-backend
         balance roundrobin
         option httpclose
         option forwardfor
-        server 26406-web-01 54.164.1.42 check
-        server 26406-web-02 34.232.68.244 check
+        server 26406-web-01 34.234.193.113 check
+        server 26406-web-02 54.237.208.38 check
