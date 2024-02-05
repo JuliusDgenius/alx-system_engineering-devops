@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Bash script that will display info about the sudomains
+# Bash script that will display info about the sudomains.
 
 config_dns ()
 {
