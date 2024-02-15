@@ -1,4 +1,4 @@
-************* MySQL ***********
+************* MySQL ************
 * Task 0: Install MySQL in web-01 and web-02
 * Task 1: Create new user, `holberton_user` and password for MySQL with SELECT permissions
 * Task 2: Create a database, `tyrell_corp` and a table, `nexus6`
