@@ -37,7 +37,7 @@ defaults
 
 frontend juliusdgenius-frontend
         bind *:80
-        bind *:443 ssl crt /etc/haproxy/certs/www.juliusdgenius.tech.pem
+        bind *:443 ssl crt /etc/letsencrypt/live/juliusdgenius.tech/fullchain.pem
         redirect scheme https code 301 if !{ ssl_fc }
         mode http
         use_backend juliusdgenius-backend
