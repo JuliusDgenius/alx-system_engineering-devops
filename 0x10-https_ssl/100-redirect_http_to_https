@@ -33,13 +33,12 @@ defaults
         errorfile 503 /etc/haproxy/errors/503.http
         errorfile 504 /etc/haproxy/errors/504.http
 
-frontend juliusdgenius-frontend-http
+frontend http-in
         bind *:80
         mode http
-        http-request set-header X-Forwarded-Proto http
-        default_backend juliusdgenius-backend
+        redirect scheme https code 301 unless { ssl_fc }
 
-frontend  juliusdgenius-frontend-https
+frontend juliusdgenius-frontend-https
         bind *:443 ssl crt /etc/haproxy/certs/www.juliusdgenius.tech.pem
         http-request set-header X-Forwarded-Proto https
         http-request redirect scheme https code 301 unless { ssl_fc }
