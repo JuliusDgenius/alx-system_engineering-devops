@@ -4,7 +4,7 @@
 apt-get update -y
 apt-get -y install nginx
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
-sudo mkdir -p /var/www/error
+sudo mkdir /var/www/error
 echo "Ceci n'est pas une page" > /var/www/error/404.html
 echo "server {
     listen 80 default_server;

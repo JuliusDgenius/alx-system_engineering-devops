@@ -4,7 +4,7 @@ sudo apt -y update
 sudo apt -y install nginx
 
 # Allow request through port 80 through
-sudo ufw Allow 'Nginx HTTP'
+sudo ufw allow 'Nginx HTTP'
 
 # Create the root directory
 sudo mkdir -p /var/www/html
