@@ -7,11 +7,14 @@ erver {
 
     server_name _;
 
+    location / {
+        # First serve request as a file, then
+        # as a directory, then 404.
+        try_files $uri $uri/ ~404;
+    }
+
     location /airbnb-onepage/ {
-        proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
-        alias /data/web_static/current/;
-        index index.html index.htm;
-        autoindex off;
+        proxy_pass http://127.0.0.1:5000;
     }
 
     location /redirect_me {
